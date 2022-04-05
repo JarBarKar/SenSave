@@ -51,7 +51,6 @@ def Face_Recognition(captured_file_name):
     # Load the jpg files into numpy arrays
     known_image = face_recognition.load_image_file("known_faces/elderly.jpg")
     detected_image = face_recognition.load_image_file("captured_faces/" + captured_file_name)
-    # return "hello"
 
 
     # Get the face encodings for each face in each image file

@@ -15,7 +15,7 @@ There are certain python files needed to be launched at different terminals for 
 1) iot_bot_code.py (to initate telegram bot) <br>
 2) main.py (to launch microbits) <br>
 
-<b>Extra notes:</b><br>
+<b>Generate telegram bot:</b><br>
 1) For telegram bot, please use BotFather to generate unique token and chat ID for the telegram bot. Follow the guide in this URL to generate the data https://sendpulse.com/knowledge-base/chatbot/create-telegram-chatbot <br>
 2) Insert the generated token and chat ID into iot_bot_code.py and main.py file, replace the values with <TOKEN_ID> and <CHAT_ID> found in the source code. <br>
 3) Create a group chat and invite your bot into the group chat to start receiving notifications and interact with it. <br>
@@ -25,6 +25,10 @@ There are certain python files needed to be launched at different terminals for 
 2) /unique (Retrieve the number of unique visitors that visit the elderly premise)
 3) /where (Retrieve the current location of the elderly and how long she was at that location for)
 
+<br>
+<b>Updating elderly face for facial recognition:</b><br>
+1)For the facial recognition, if you want to change to a new elderly face for the face_recognition software to use as a basis of comparison for visitors and elderly. Navigate to known_faces directory and replace elderly.jpg with the new photo.
+2) *NOTE* that the file must be named <b>elderly.jpg</b> for the software to recognize.
 
 <u><b>App used: </b></u>
 

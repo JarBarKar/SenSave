@@ -43,6 +43,15 @@ There are certain python files needed to be launched at different terminals for 
 
 Description: This file uses the python library opencv, to snap a picture using the laptop cam, followed by comparing the captured image and the stored image to see if the photos matched with the database (Using facial_recognition library). Lastly, it will trigger a push notification to our telegram bot to inform the user if the elderly is entering the premises or unknown personel is nearby the premises. Furthermore, if no faces are detected in the snapshot, no action will be taken, to reduce redunctant notification pushed and to save spaces too.
 
+<b>Telegram Bot</b>: <br>
+tele_notification.py <br>
+
+Description: This file sends push notification to the telegram bot to broadcast the elderly status. <br>
+
+iot_bot_code.py <br>
+
+Description: This file responds to telegram commands when user input it in the group chat that the bot is in it. <br><br>
+
 <u><b>Data storage: </b></u>
 
 <b>Machine learning data</b>: elderlyHabits.csv

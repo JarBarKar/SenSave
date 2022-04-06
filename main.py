@@ -1,3 +1,4 @@
+from cv2 import threshold
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 import datetime
@@ -246,9 +247,10 @@ next_time = timePreviousCheck + checkInterval
 lastMove = datetime.datetime.now()
 
 
-alertedCount = 0
+threshold = 1.0
 abnormalTriggerTime = 30
 noMoveTriggerTime = 30
+checkProbaList = [1, 1, 1]
 
 elderlyHome = True
 
@@ -259,18 +261,17 @@ while True:
         ser_bytes = ser.read()
         now = datetime.datetime.now()
         if next_time <= now:
+            currentLocation = returnLocation()
             timePreviousCheck = now
             tempTime = getTimeDict()
             tempbin = tempTime["hour"]*6 + tempTime["minute"]//10
-            tempbin = tempTime["hour"]*6 + tempTime["minute"]//10
+            probaCurrentLocal = clf.predict_proba([[tempbin,tempTime["weekday"]]])[0][locationIDDict[currentLocation]]
             predictedLocation = IDLocationDict[int(clf.predict([[tempbin,tempTime["weekday"]]]))]
-            currentLocation = returnLocation()
-            if currentLocation != predictedLocation:
-                alertedCount += 1
-                if alertedCount >= (abnormalTriggerTime/10):
-                    send_alert_abnormal(predictedLocation, currentLocation, abnormalTriggerTime)
-            else:
-                alertedCount = 0
+            checkProbaList.pop(0)
+            checkProbaList.append(probaCurrentLocal)
+            accumChances = sum(checkProbaList)
+            if accumChances < threshold:
+                send_alert_abnormal(predictedLocation, currentLocation, abnormalTriggerTime)
 
             minutePassed = (now - lastMove).total_seconds()/60
             if elderlyHome:

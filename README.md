@@ -10,10 +10,17 @@ Python
 4) Open terminal and type "pip install -r requirements.txt" to install all the dependencies required.
 5) Do note that Cmake and Dlib might be difficult to install for macbook M1 and windows machine. So creating a virtual environment for this project is highly recommended. For windows user, please follow the guide in this URL to install dlib: https://medium.com/analytics-vidhya/how-to-install-dlib-library-for-python-in-windows-10-57348ba1117f
 
+<u><b>Serial port setup:</b></u>
+1) Open Device Manager on the computer (press window + s to search)
+2) Under Ports (COM &LPT), take note the current port used.
+3) Plug in the mircobit used as a reciever into an USB port.
+4) Under Ports (COM &LPT), check the new port used.
+5) Change the port number at main.py, line 97 to the port identified in step 4
+
 <u><b>Apps to launch: </b></u><br>
 There are certain python files needed to be launched at different terminals for it to receive information. <br>
 1) iot_bot_code.py (to initate telegram bot) <br>
-2) main.py (to launch microbits) <br>
+2) main.py (to initiate data collection from microbits, and coordinate other functions) <br>
 
 <b>Generate telegram bot:</b><br>
 1) For telegram bot, please use BotFather to generate unique token and chat ID for the telegram bot. Follow the guide in this URL to generate the data https://sendpulse.com/knowledge-base/chatbot/create-telegram-chatbot <br>
@@ -35,3 +42,47 @@ There are certain python files needed to be launched at different terminals for 
 <b>Facial recognition</b>: final_face_detection_v3.py
 
 Description: This file uses the python library opencv, to snap a picture using the laptop cam, followed by comparing the captured image and the stored image to see if the photos matched with the database (Using facial_recognition library). Lastly, it will trigger a push notification to our telegram bot to inform the user if the elderly is entering the premises or unknown personel is nearby the premises. Furthermore, if no faces are detected in the snapshot, no action will be taken, to reduce redunctant notification pushed and to save spaces too.
+
+<u><b>Data storage: </b></u>
+
+<b>Machine learning data</b>: elderlyHabits.csv
+
+Description: This file stores parameter needed to train the sense making machine learning model. Stored parameters [year, month, day, hour, minutes, second, weekday, location, duration]. First 6 parameter is to store time. [weekday] refers to the day of the week (e.g. 0: monday, 1: Tuesday). [location] is refers to where the elderly is. [duration] refers to how long the elderly is in that location, in hours.
+
+<b>Movement tracking</b>: lastMovement.csv
+
+Description: This file stores time stamp and motion detected by PIR sensors in different room. Stored parameters [year, month, day, hour, minutes, second, location]. First 6 parameter is to store time. [location] is refers to where the sensor is placed. This data is used to approximate elderly's movement.
+
+<b>Person tracking</b>: ownerVisitor.csv
+
+Description: This file stores how many people is in the elderly's house. Stored parameters [year, month, day, hour, minutes, second, personCount, elderly]. First 6 parameter is to store time. [personCount] is refers to number of visitors in the house. [elderly] is a boolean parameter that refers to if the elderly is at home.
+
+<u><b>Microbit files: </b></u>
+
+<b>Receiver</b>: microbit-Receiver.hex
+
+Description: This file is to be downloaded to the microbit connected to the laptop to serve as a receiver for other microbits.
+
+<b>Directional movement tracking(1)</b>: microbit-first.hex
+
+Description: This file is to be downloaded to the microbit located nearer to the door to track entrance and exit.
+
+<b>Directional movement tracking(2)</b>: microbit-second.hex
+
+Description: This file is to be downloaded to the microbit located further to the door to track entrance and exit.
+
+<b>Bedroom sensor</b>: microbit-Sensorbedroom.hex
+
+Description: This file is to be downloaded to the microbit placed at the bedroom.
+
+<b>Kitchen sensor</b>: microbit-Sensorkitchen.hex
+
+Description: This file is to be downloaded to the microbit placed at the kitchen.
+
+<b>Living room sensor</b>: microbit-sensorliving-room.hex
+
+Description: This file is to be downloaded to the microbit placed at the living room.
+
+<b>Toilet sensor</b>: microbit-Sensortoilet.hex
+
+Description: This file is to be downloaded to the microbit placed at the toilet.

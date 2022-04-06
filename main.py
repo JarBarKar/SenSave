@@ -38,7 +38,7 @@ locationIDDict = {
     'living room' : 4,
     'outside' : 0}
 
-IDLocationDict = {v: k for k, v in locationIDDict.items()
+IDLocationDict = {v: k for k, v in locationIDDict.items()}
 
 #Machine learning start                  
                   
@@ -91,7 +91,7 @@ clf.fit(x.values, y)
 
 startCSV()
 
-ser = serial.Serial('COM4', 115200)
+ser = serial.Serial('COM5', 115200)
 
 firstTrigger = False
 secondTrigger = False
@@ -347,7 +347,7 @@ while True:
                 #return stranger/elderly
                 if person == 'elderly':
                     elderlyEnter()
-                    elderlyEnter = True
+                    elderlyHome = True
                 elif person == 'stranger':
                     strangerEnter()
 

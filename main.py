@@ -50,7 +50,7 @@ if data["duration"].isna().sum() > 0:
      data["day"].loc[data.index[-1]],
      data["hour"].loc[data.index[-1]], 
      data["minute"].loc[data.index[-1]],
-     data["second"].loc[data.index[-1]])
+     int(data["second"].loc[data.index[-1]]))
 
     duration = datetime.datetime.now() - lasttime
     durationDeltaSeconds = duration.total_seconds()
@@ -261,7 +261,6 @@ while True:
         if next_time <= now:
             timePreviousCheck = now
             tempTime = getTimeDict()
-            tempbin = tempTime["hour"]*6 + tempTime["minute"]//10
             tempbin = tempTime["hour"]*6 + tempTime["minute"]//10
             predictedLocation = IDLocationDict[int(clf.predict([[tempbin,tempTime["weekday"]]]))]
             currentLocation = returnLocation()

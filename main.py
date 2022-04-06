@@ -51,7 +51,7 @@ if data["duration"].isna().sum() > 0:
      data["day"].loc[data.index[-1]],
      data["hour"].loc[data.index[-1]], 
      data["minute"].loc[data.index[-1]],
-     data["second"].loc[data.index[-1]])
+     int(data["second"].loc[data.index[-1]]))
 
     duration = datetime.datetime.now() - lasttime
     durationDeltaSeconds = duration.total_seconds()

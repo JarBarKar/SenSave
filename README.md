@@ -24,7 +24,7 @@ There are certain python files needed to be launched at different terminals for 
 
 <b>Generate telegram bot:</b><br>
 1) For telegram bot, please use BotFather to generate unique token and chat ID for the telegram bot. Follow the guide in this URL to generate the data https://sendpulse.com/knowledge-base/chatbot/create-telegram-chatbot <br>
-2) Insert the generated token and chat ID into iot_bot_code.py and main.py file, replace the values with <TOKEN_ID> and <CHAT_ID> found in the source code. <br>
+2) Insert the generated token and chat ID into iot_bot_code.py, tele_notification.py and main.py file, replace the values with <TOKEN_ID> and <CHAT_ID> found in the source code. <br>
 3) Create a group chat and invite your bot into the group chat to start receiving notifications and interact with it. <br>
 
 <b>Telegram bot commands:</b><br>
@@ -36,12 +36,21 @@ There are certain python files needed to be launched at different terminals for 
 <b>Updating elderly face for facial recognition:</b><br>
 1)For the facial recognition, if you want to change to a new elderly face for the face_recognition software to use as a basis of comparison for visitors and elderly. Navigate to known_faces directory and replace elderly.jpg with the new photo.
 2) *NOTE* that the file must be named <b>elderly.jpg</b> for the software to recognize.
-
-<u><b>App used: </b></u>
+<br><br>
+<u><b>App used: </b></u><br><br>
 
 <b>Facial recognition</b>: final_face_detection_v3.py
 
 Description: This file uses the python library opencv, to snap a picture using the laptop cam, followed by comparing the captured image and the stored image to see if the photos matched with the database (Using facial_recognition library). Lastly, it will trigger a push notification to our telegram bot to inform the user if the elderly is entering the premises or unknown personel is nearby the premises. Furthermore, if no faces are detected in the snapshot, no action will be taken, to reduce redunctant notification pushed and to save spaces too.
+
+<b>Telegram Bot</b>: <br>
+tele_notification.py <br>
+
+Description: This file sends push notification to the telegram bot to broadcast the elderly status. <br>
+
+iot_bot_code.py <br>
+
+Description: This file responds to telegram commands when user input it in the group chat that the bot is in it. <br><br>
 
 <u><b>Data storage: </b></u>
 

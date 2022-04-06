@@ -66,32 +66,32 @@ Description: This file stores time stamp and motion detected by PIR sensors in d
 
 Description: This file stores how many people is in the elderly's house. Stored parameters [year, month, day, hour, minutes, second, personCount, elderly]. First 6 parameter is to store time. [personCount] is refers to number of visitors in the house. [elderly] is a boolean parameter that refers to if the elderly is at home.
 
-<u><b>Microbit files: </b></u>
+<u><b>Microbit files (hex/python): </b></u>
 
-<b>Receiver</b>: microbit-Receiver.hex
+<b>Receiver</b>: microbit-Receiver.hex / receiver.py
 
 Description: This file is to be downloaded to the microbit connected to the laptop to serve as a receiver for other microbits.
 
-<b>Directional movement tracking(1)</b>: microbit-first.hex
+<b>Directional movement tracking(1)</b>: microbit-first.hex / first.py
 
 Description: This file is to be downloaded to the microbit located nearer to the door to track entrance and exit.
 
-<b>Directional movement tracking(2)</b>: microbit-second.hex
+<b>Directional movement tracking(2)</b>: microbit-second.hex / second.py
 
 Description: This file is to be downloaded to the microbit located further to the door to track entrance and exit.
 
-<b>Bedroom sensor</b>: microbit-Sensorbedroom.hex
+<b>Bedroom sensor</b>: microbit-Sensorbedroom.hex / sensor(bedroom).py
 
 Description: This file is to be downloaded to the microbit placed at the bedroom.
 
-<b>Kitchen sensor</b>: microbit-Sensorkitchen.hex
+<b>Kitchen sensor</b>: microbit-Sensorkitchen.hex /sensor(kitchen).py
 
 Description: This file is to be downloaded to the microbit placed at the kitchen.
 
-<b>Living room sensor</b>: microbit-sensorliving-room.hex
+<b>Living room sensor</b>: microbit-sensorliving-room.hex / sensor(living_room).py
 
 Description: This file is to be downloaded to the microbit placed at the living room.
 
-<b>Toilet sensor</b>: microbit-Sensortoilet.hex
+<b>Toilet sensor</b>: microbit-Sensortoilet.hex / sensor(toilet).py
 
 Description: This file is to be downloaded to the microbit placed at the toilet.

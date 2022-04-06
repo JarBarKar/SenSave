@@ -37,7 +37,7 @@ There are certain python files needed to be launched at different terminals for 
 1)For the facial recognition, if you want to change to a new elderly face for the face_recognition software to use as a basis of comparison for visitors and elderly. Navigate to known_faces directory and replace elderly.jpg with the new photo.
 2) *NOTE* that the file must be named <b>elderly.jpg</b> for the software to recognize.
 <br>
-<u><b>App used: </b></u>
+<u><b>App used: </b></u><br>
 
 <b>Facial recognition</b>: final_face_detection_v3.py
 

@@ -37,10 +37,10 @@ locationIDDict = {
     'living room' : 4,
     'outside' : 0}
 
-IDLocationDict = {v: k for k, v in locationIDDict.items()}
+IDLocationDict = {v: k for k, v in locationIDDict.items()
 
-# print(IDLocationDict)
-
+#Machine learning start                  
+                  
 data = pd.read_csv("elderlyHabits.csv")
 
 if data["duration"].isna().sum() > 0:
@@ -68,7 +68,6 @@ for i in range(len(data.index)):
 
     basebin = int(hour)*6 + int(minute)//10 
     multiple = int(data["duration"].loc[i]*6//1)
-    #print(multiple)
     dayweek = data["weekday"].loc[i]
     count = 0
 
@@ -80,20 +79,12 @@ for i in range(len(data.index)):
         resultlist.append([bin, encodeLocation,weekday])
         count += 1
 
-
-# print(resultlist)
-
 df_x = pd.DataFrame(resultlist)
 df_x.rename({0:'bin', 1:'encoded_location', 2:'encoded_day_of_week'}, inplace=True, axis=1)
 x = df_x.drop('encoded_location', axis=1)
 y = df_x['encoded_location']
 clf = RandomForestClassifier(max_depth=15, random_state=6969)
 clf.fit(x.values, y)
-# print(clf.predict([[6,2]]))
-# print(clf.predict([[147,2]]))
-# print(clf.predict([[49,2]]))
-# print(clf.predict([[120,2]]))
-# print(int(clf.predict([[60,3]])))
 
 #model training ends
 
@@ -245,6 +236,8 @@ def returnDuration():
     duration = durationDeltaSeconds/(60)
     #unit = minute
     return duration
+                  
+#microbit receiver section
 
 checkInterval = datetime.timedelta(minutes=10)
 timePreviousCheck = datetime.datetime.now()
@@ -298,7 +291,6 @@ while True:
                     elderlyHabitUpdate('toilet')
 
         elif ser_bytes == b'b':
-            # personList = returnPerson()
             elderly, personCount = returnPerson()
             lastMove = datetime.datetime.now()
             if elderly and personCount == 0:
